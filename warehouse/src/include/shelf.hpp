@@ -6,5 +6,7 @@ class Shelf: public Icontainer{
     Pallet pallets[4];
 
     Shelf();
+    bool isEmpty() override;
+    bool isFull() override;
     bool swapPellet(int slot, int slot2);
 };
