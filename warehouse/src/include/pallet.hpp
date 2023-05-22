@@ -11,6 +11,8 @@ class Pallet : public Icontainer{
 
     Pallet(std::string itemName, int itemCapacity, int itemCount);
     Pallet();
+    bool isEmpty() override;
+    bool isFull() override;
     std::string getItemName();
     int getItemCount();
     int getRemainingSpace();
