@@ -27,7 +27,7 @@ bool Shelf::isFull(){
     return full;
 };
 
-int Shelf::checkLeastFullPallet(int index){
+int Shelf::checkMostFullPallet(int index){
     int max = 0;
     for (int i = index; i < palletSize; i++){
         if (pallets[max].getItemCount() < pallets[i].getItemCount()){
