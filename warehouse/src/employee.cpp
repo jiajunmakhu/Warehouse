@@ -21,3 +21,7 @@ bool Employee::getForkliftCertificate(){
 void Employee::setForkliftCertificate(){
     this->forkliftCertificate;
 };
+
+bool Employee::operator==(Employee rhs){
+    return (this->name == rhs.getName()) && (this->busy == rhs.getBusy()) && (this->forkliftCertificate == rhs.getForkliftCertificate());
+};

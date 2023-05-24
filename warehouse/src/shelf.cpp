@@ -1,7 +1,8 @@
 #include "include/shelf.hpp"
 
 Shelf::Shelf(){
-    Pallet pallets[4];
+    int palletSize = 4;
+    Pallet pallets[palletSize];
 };
 
 bool Shelf::isEmpty(){
@@ -25,6 +26,16 @@ bool Shelf::isFull(){
     }
     return full;
 };
+
+int Shelf::checkLeastFullPallet(int index){
+    int max = 0;
+    for (int i = index; i < palletSize; i++){
+        if (pallets[max].getItemCount() < pallets[i].getItemCount()){
+            max = i;
+        }
+    }
+    return max;
+}
 
 bool Shelf::swapPellet(int slot, int slot2){
     Pallet pallet1 = this->pallets[slot];
