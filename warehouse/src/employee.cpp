@@ -1,6 +1,7 @@
+#pragma once
 #include "include/employee.hpp"
 
-Employee::Employee(std::string name, bool forkliftCertificate): name(name), forkliftCertificate(forkliftCertificate){};
+Employee::Employee(std::string name, bool forkliftCertificate): name(name), forkliftCertificate(forkliftCertificate), busy(false){};
 
 std::string Employee::getName(){
     return this->name;

@@ -1,5 +1,6 @@
-#include "include/employee.hpp"
-#include "include/shelf.hpp"
+#pragma once
+#include "employee.hpp"
+#include "shelf.hpp"
 #include <string>
 #include <vector>
 

@@ -1,5 +1,5 @@
-#include "include/Icontainer.hpp"
-#include "include/pallet.hpp"
+#pragma once
+#include "pallet.hpp"
 
 class Shelf: public Icontainer{
     public:
