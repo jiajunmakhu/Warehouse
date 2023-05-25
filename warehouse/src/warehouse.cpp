@@ -19,13 +19,17 @@ void Warehouse::addShelf(Shelf shelf){
     this->shelves.push_back(shelf);
 };
 
-bool Warehouse::rearrangeShelf(Shelf& shelf){
-    for (int i = 0; i < shelf.palletSize; i++){
-        int mostFullPallet = shelf.checkMostFullPallet(i);
-        if (mostFullPallet != i){
-            shelf.swapPellet(i, mostFullPallet);
+bool Warehouse::rearrangeShelf(Shelf& shelf, Employee employee){
+    if (employee.getForkliftCertificate()){
+        for (int i = 0; i < shelf.palletSize; i++){
+            int mostFullPallet = shelf.checkMostFullPallet(i);
+            if (mostFullPallet != i){
+                shelf.swapPellet(i, mostFullPallet);
+            }
         }
+        return true;
     }
+    return false;
 };
 
 bool Warehouse::pickItems(std::string itemName, int itemCount){
