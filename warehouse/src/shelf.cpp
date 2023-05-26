@@ -1,5 +1,6 @@
 #pragma once
 #include "include/shelf.hpp"
+#include <iostream>
 
 Shelf::Shelf(){
     int palletSize = 4;
@@ -28,17 +29,20 @@ bool Shelf::isFull(){
     return full;
 };
 
-int Shelf::checkMostFullPallet(int index){
-    int max = 0;
-    for (int i = index; i < palletSize; i++){
-        if (pallets[max].getItemCount() < pallets[i].getItemCount()){
-            max = i;
+int Shelf::checkLeastFullPallet(int index){
+    int min = 0;
+    for ( index ;index < 4; index++){
+        if (this->pallets[min].getItemCount() > this->pallets[index].getItemCount()){
+            min = index;
         }
     }
-    return max;
+    return min;
 }
 
 bool Shelf::swapPallet(int slot, int slot2){
+    if ((slot < 0) || (slot >= 4) || (slot2 < 0) || (slot2 >= 4)){
+        return false;
+    };
     Pallet pallet1 = this->pallets[slot];
     Pallet pallet2 = this->pallets[slot2];
     this->pallets[slot] = pallet2;

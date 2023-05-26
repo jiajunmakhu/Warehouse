@@ -21,11 +21,11 @@ void Warehouse::addShelf(Shelf shelf){
 };
 
 bool Warehouse::rearrangeShelf(Shelf& shelf, Employee employee){
-    if (employee.getForkliftCertificate()){
+    if (!employee.getBusy() && employee.getForkliftCertificate()){
         for (int i = 0; i < shelf.palletSize; i++){
-            int mostFullPallet = shelf.checkMostFullPallet(i);
-            if (mostFullPallet != i){
-                shelf.swapPallet(i, mostFullPallet);
+            int leastFullPallet = shelf.checkLeastFullPallet(i);
+            if (leastFullPallet != i){
+                shelf.swapPallet(i, leastFullPallet);
             }
         }
         return true;
@@ -38,10 +38,17 @@ bool Warehouse::pickItems(std::string itemName, int itemCount){
     for (Shelf shelf: this->shelves){
         for (Pallet pallet: shelf.pallets){
             if (pallet.getItemName() == itemName){
-                pallet.takeOne();
-                toPickCount--;
+                for (int i  = 0; i < pallet.getItemCount(); i++){
+                    if (toPickCount == 0){
+                        return true;
+                    }
+                    pallet.takeOne();
+                    toPickCount--;
+                }
             }
         }
     }
-    return true;
+    if (toPickCount != 0){
+        return false;   
+    }
 };

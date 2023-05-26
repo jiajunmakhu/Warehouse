@@ -9,6 +9,6 @@ class Shelf: public Icontainer{
     Shelf();
     bool isEmpty() override;
     bool isFull() override;
-    int checkMostFullPallet(int index);
+    int checkLeastFullPallet(int index);
     bool swapPallet(int slot, int slot2);
 };
