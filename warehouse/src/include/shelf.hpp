@@ -10,5 +10,5 @@ class Shelf: public Icontainer{
     bool isEmpty() override;
     bool isFull() override;
     int checkMostFullPallet(int index);
-    bool swapPellet(int slot, int slot2);
+    bool swapPallet(int slot, int slot2);
 };

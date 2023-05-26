@@ -25,7 +25,7 @@ bool Warehouse::rearrangeShelf(Shelf& shelf, Employee employee){
         for (int i = 0; i < shelf.palletSize; i++){
             int mostFullPallet = shelf.checkMostFullPallet(i);
             if (mostFullPallet != i){
-                shelf.swapPellet(i, mostFullPallet);
+                shelf.swapPallet(i, mostFullPallet);
             }
         }
         return true;
@@ -43,4 +43,5 @@ bool Warehouse::pickItems(std::string itemName, int itemCount){
             }
         }
     }
+    return true;
 };

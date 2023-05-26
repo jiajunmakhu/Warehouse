@@ -19,8 +19,8 @@ bool Employee::getForkliftCertificate(){
     return this->forkliftCertificate;
 };
 
-void Employee::setForkliftCertificate(){
-    this->forkliftCertificate;
+void Employee::setForkliftCertificate(bool certificate){
+    this->forkliftCertificate = certificate;
 };
 
 bool Employee::operator==(Employee rhs){

@@ -38,7 +38,7 @@ int Shelf::checkMostFullPallet(int index){
     return max;
 }
 
-bool Shelf::swapPellet(int slot, int slot2){
+bool Shelf::swapPallet(int slot, int slot2){
     Pallet pallet1 = this->pallets[slot];
     Pallet pallet2 = this->pallets[slot2];
     this->pallets[slot] = pallet2;

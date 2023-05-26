@@ -13,6 +13,6 @@ class Employee{
     bool getBusy();
     void setBusy(bool busy);
     bool getForkliftCertificate();
-    void setForkliftCertificate();
+    void setForkliftCertificate(bool certificate);
     bool operator==(Employee rhs);
 };
